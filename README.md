@@ -3,7 +3,7 @@
 Mixins or so-called traits for Ruby (like module does not exist :)).
 
 ## How to use Traitee
-```
+```ruby
 require 'traitee'
 
 class Transporter
