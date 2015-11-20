@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'minitest'
 
-  s.files        = Dir['lib/**/*.rb'] + ['README.md', 'LICENSE.txt']
+  s.files        = Dir['lib/**/*.rb'] + ['README.md']
   s.require_path = 'lib'
 end
