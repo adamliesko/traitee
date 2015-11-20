@@ -1,6 +1,6 @@
 # Traitee
 
-Mixins or so-called traits for Ruby (like module does not exist :)).
+Mixins or so-called traits for Ruby (like module did not exist :)).
 
 ## How to use Traitee
 ```ruby
