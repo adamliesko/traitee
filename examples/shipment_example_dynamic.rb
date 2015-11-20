@@ -5,7 +5,7 @@ transporter = Class.new do
 
   serves do
     def shipping_address
-      'Uhliska 23, 831 07 Bratislava Slovakia'
+      'Koniarkova 101, 831 07 Bratislava Slovakia'
     end
 
     def dimensions
