@@ -2,6 +2,8 @@ require 'traitee'
 class Transporter
   extend(Traitee::Trait)
 
+  @class_holder = 120
+
   serves do
     def shipping_address
       'Koniarkova 101, 831 07 Bratislava Slovakia'
@@ -17,6 +19,7 @@ end
 class Shipper
   extend(Traitee::Trait)
 
+  @state_holder = 12
   serves do
     def compute_volume(w, h, d)
       "Dimensions #{w} x #{h} x #{d} form a volume of: #{w*h*d}"
@@ -34,3 +37,4 @@ shipment = Shipment.new
 p "shipment.shipping_address          >>>  #{shipment.shipping_address}"
 p "shipment.current_range             >>> #{shipment.current_range}"
 p "shipment.compute_volume 10, 20, 15 >>> #{ shipment.compute_volume 10, 20, 15}"
+

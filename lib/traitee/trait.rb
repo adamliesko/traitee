@@ -3,6 +3,9 @@ require 'traitee/merger'
 require 'traitee/dict'
 
 module Traitee
+  class StateHolderError < StandardError
+  end
+
   module Trait
     extend Forwardable # we want some delegators in here, to delegate to the included trait
     def_instance_delegators :this, :instance_methods, :send
@@ -20,6 +23,7 @@ module Traitee
 
     # usable methods
     def methods(options = {})
+      check_for_state_holders
       served_from(this, *this.instance_methods)
       dict.methods_hash(options)
     end
@@ -34,6 +38,11 @@ module Traitee
       methods.each { |method_name| dict << [trait_module, method_name] }
     end
 
+    def check_for_state_holders
+      if self.instance_variables.size > 1 || self.class_variables.size > 1
+        raise StateHolderError ,"StateHolderError: Traits were not meant to hold any state"
+      end
+    end
     def self.subject_composition(*params, &block)
       Class.new do
         extend Trait

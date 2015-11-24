@@ -4,8 +4,8 @@ transporter = Class.new do
   extend(Traitee::Trait)
 
   serves do
-    def dimensions
-      'small'
+    def compute_volume
+      "1000"
     end
   end
 end
@@ -13,17 +13,9 @@ end
 shipper = Class.new do
   extend(Traitee::Trait)
 
-  attr_accessor :width, :height, :depth
-
   serves do
-    def set_dimensions(w, h, d)
-      @width = w
-      @height = h
-      @depth = d
-    end
-
-    def dimensions
-      "#{@width} x #{@height} x #{@depth}"
+    def compute_volume
+      "1000"
     end
   end
 end
@@ -34,4 +26,4 @@ shipment_class = Class.new do
 end
 
 shipment = shipment_class.new
-shipment.dimensions
+shipment.compute_volume

@@ -17,17 +17,9 @@ end
 class Shipper
   extend(Traitee::Trait)
 
-  attr_accessor :width, :height, :depth
-
   serves do
-    def set_dimensions(w, h, d)
-      @width = w
-      @height = h
-      @depth = d
-    end
-
-    def dimensions
-      "#{@width} x #{@height} x #{@depth}"
+    def compute_volume(w, h, d)
+      "Dimensions #{w} x #{h} x #{d} form a volume of: #{w*h*d}"
     end
   end
 end
@@ -44,6 +36,5 @@ composition_klass.merge(shipment_trait)
 shipment = composition_klass.new
 p "shipment.shipping_address          >>> #{shipment.shipping_address}"
 p "shipment.current_range             >>> #{shipment.current_range}"
-p "shipment.set_dimensions 10, 20, 15 >>> #{ shipment.set_dimensions 10, 20, 15}"
-p "shipment.dimensions                >>> #{shipment.dimensions}"
+p "shipment.compute_volume 10, 20, 15 >>> #{shipment.compute_volume 10, 20, 15}"
 p "shipment.status                    >>> #{shipment.status}"
