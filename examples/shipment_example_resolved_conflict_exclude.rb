@@ -13,7 +13,6 @@ end
 shipper = Class.new do
   extend(Traitee::Trait)
 
-  attr_accessor :width, :height, :depth
 
   serves do
     def compute_volume(w, h, d)

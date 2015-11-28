@@ -34,3 +34,9 @@ shipment = Shipment.new
 p "shipment.shipping_address          >>>  #{shipment.shipping_address}"
 p "shipment.current_range             >>> #{shipment.current_range}"
 p "shipment.compute_volume 10, 20, 15 >>> #{ shipment.compute_volume 10, 20, 15}"
+
+
+class A
+  include B
+  include C
+end

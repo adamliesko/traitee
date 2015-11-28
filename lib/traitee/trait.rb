@@ -9,7 +9,6 @@ module Traitee
   module Trait
     extend Forwardable # we want some delegators in here, to delegate to the included trait
     def_instance_delegators :this, :instance_methods, :send
-    alias_method :[], :methods
 
     include Merger
 
@@ -43,6 +42,7 @@ module Traitee
         raise StateHolderError ,"StateHolderError: Traits were not meant to hold any state"
       end
     end
+
     def self.subject_composition(*params, &block)
       Class.new do
         extend Trait
